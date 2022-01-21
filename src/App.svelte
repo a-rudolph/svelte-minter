@@ -1,29 +1,41 @@
 <script>
-  import logo from './assets/svelte.png'
+  import { ethers } from 'ethers'
+  import { onMount } from 'svelte'
+
+  import logo from './assets/mint.png'
   import Counter from './lib/Counter.svelte'
+
+  onMount(() => {
+    if ('ethereum' in window) {
+      isEtherPresent = true
+
+      // @ts-ignore
+      const provider = new ethers.providers.Web3Provider(window.ethereum)
+
+      console.log(provider)
+    }
+  })
+
+  let isEtherPresent = false
 </script>
 
 <main>
   <img src={logo} alt="Svelte Logo" />
-  <h1>Hello world!</h1>
+  <h1>Start Minting!</h1>
 
   <Counter />
 
-  <p>
-    Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
-    apps.
-  </p>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a> for
-    the officially supported framework, also powered by Vite!
-  </p>
+  {#if isEtherPresent}
+    <p>You have wallet</p>
+  {:else}
+    <p>Get metamask</p>
+  {/if}
 </main>
 
 <style>
   :root {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+      'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   main {
@@ -34,11 +46,10 @@
 
   img {
     height: 16rem;
-    width: 16rem;
   }
 
   h1 {
-    color: #ff3e00;
+    color: #1d3e1c;
     text-transform: uppercase;
     font-size: 4rem;
     font-weight: 100;

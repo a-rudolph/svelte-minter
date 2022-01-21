@@ -14,10 +14,10 @@
     font-family: inherit;
     font-size: inherit;
     padding: 1em 2em;
-    color: #ff3e00;
-    background-color: rgba(255, 62, 0, 0.1);
+    color: #1d3e1c;
+    background-color: #82c85f;
     border-radius: 2em;
-    border: 2px solid rgba(255, 62, 0, 0);
+    border: 2px solid #1d3e1c;
     outline: none;
     width: 200px;
     font-variant-numeric: tabular-nums;
@@ -25,10 +25,9 @@
   }
 
   button:focus {
-    border: 2px solid #ff3e00;
   }
 
   button:active {
-    background-color: rgba(255, 62, 0, 0.2);
+    background-color: rgba(29, 62, 28, 0.2);
   }
 </style>
