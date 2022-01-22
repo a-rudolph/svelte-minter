@@ -4,29 +4,33 @@
 
   import logo from './assets/mint.png'
   import Counter from './lib/Counter.svelte'
+  import Wallet from './lib/Wallet.svelte'
 
-  onMount(() => {
+  onMount(async () => {
     if ('ethereum' in window) {
       isEtherPresent = true
 
       // @ts-ignore
       const provider = new ethers.providers.Web3Provider(window.ethereum)
 
-      console.log(provider)
+      await provider.send('eth_requestAccounts', [])
+
+      signer = provider.getSigner()
     }
   })
 
   let isEtherPresent = false
+  let signer = null
 </script>
 
 <main>
-  <img src={logo} alt="Svelte Logo" />
+  <img src={logo} alt="Mint Logo" />
   <h1>Start Minting!</h1>
 
   <Counter />
 
   {#if isEtherPresent}
-    <p>You have wallet</p>
+    <Wallet {signer} />
   {:else}
     <p>Get metamask</p>
   {/if}

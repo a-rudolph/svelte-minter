@@ -24,9 +24,6 @@
     cursor: pointer;
   }
 
-  button:focus {
-  }
-
   button:active {
     background-color: rgba(29, 62, 28, 0.2);
   }
