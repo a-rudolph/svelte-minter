@@ -5,6 +5,7 @@
   import logo from './assets/mint.png'
   import Counter from './lib/Counter.svelte'
   import Wallet from './lib/Wallet.svelte'
+  import Token from './lib/Token.svelte'
 
   onMount(async () => {
     if ('ethereum' in window) {
@@ -28,6 +29,7 @@
   <h1>Start Minting!</h1>
 
   <Counter />
+  <Token />
 
   {#if isEtherPresent}
     <Wallet {signer} />
