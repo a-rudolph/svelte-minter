@@ -1,22 +1,46 @@
 <script>
+  const maxis = {
+    chin: 2,
+    ears: 2,
+    eyes: 5,
+    hair: 5,
+    mouth: 6,
+    nose: 2,
+    neck: 3,
+  }
+
+  const getN = (max) => {
+    return Math.ceil(Math.random() * max)
+  }
+
+  const getUrl = (key) => {
+    const max = maxis[key]
+    const n = getN(max)
+
+    return `/layers/${key}-${n}.png`
+  }
+
+  const getKeyUrlPair = (key) => {
+    return [key, getUrl(key)]
+  }
+
+  const getUrls = () => {
+    const keys = Object.keys(maxis)
+
+    return keys.map(getKeyUrlPair)
+  }
+
+  const urls = getUrls()
+
   const base = '/layers/base.png'
-  const mouth = '/layers/mouth-1.png'
-  const nose = '/layers/nose-1.png'
-  const eyes = '/layers/eyes-1.png'
-  const hair = '/layers/hair-1.png'
-  const ears = '/layers/ears-1.png'
-  const neck = '/layers/neck-1.png'
 </script>
 
 <div class="row">
   <div class="wrapper">
     <img src={base} alt="base" />
-    <img src={mouth} alt="mouth" />
-    <img src={nose} alt="nose" />
-    <img src={eyes} alt="eyes" />
-    <img src={hair} alt="hair" />
-    <img src={ears} alt="ears" />
-    <img src={neck} alt="neck" />
+    {#each urls as [key, src] (key)}
+      <img {src} alt={key} />
+    {/each}
   </div>
 </div>
 
