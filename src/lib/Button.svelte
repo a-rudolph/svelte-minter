@@ -1,12 +1,5 @@
-<script>
-  let count = 0
-  const increment = () => {
-    count += 1
-  }
-</script>
-
-<button on:click={increment}>
-  Clicks: {count}
+<button on:click>
+  <slot />
 </button>
 
 <style>
@@ -22,6 +15,7 @@
     width: 200px;
     font-variant-numeric: tabular-nums;
     cursor: pointer;
+    font-weight: 600;
   }
 
   button:active {

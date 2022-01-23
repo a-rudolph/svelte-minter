@@ -3,9 +3,8 @@
   import { onMount } from 'svelte'
 
   import logo from './assets/mint.png'
-  import Counter from './lib/Counter.svelte'
   import Wallet from './lib/Wallet.svelte'
-  import Token from './lib/Token.svelte'
+  import Minter from './lib/Minter.svelte'
 
   onMount(async () => {
     if ('ethereum' in window) {
@@ -28,8 +27,7 @@
   <img src={logo} alt="Mint Logo" />
   <h1>Start Minting!</h1>
 
-  <Counter />
-  <Token />
+  <Minter />
 
   {#if isEtherPresent}
     <Wallet {signer} />
