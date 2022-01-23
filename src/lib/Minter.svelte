@@ -12,6 +12,8 @@
     neck: 3,
   }
 
+  const possibilities = Object.values(maxis).reduce((curr, acc) => curr * acc)
+
   const getN = (max) => {
     return Math.ceil(Math.random() * max)
   }
@@ -41,6 +43,9 @@
 </script>
 
 <div>
+  <p>
+    {possibilities} possible tokens
+  </p>
   <div class="row">
     <Button on:click={shuffle}>SHUFFLE</Button>
   </div>
