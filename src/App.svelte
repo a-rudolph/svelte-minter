@@ -57,8 +57,10 @@
     font-size: 4rem;
     font-weight: 100;
     line-height: 1.1;
-    margin: 2rem auto;
+    margin: 2rem 0;
     max-width: 14rem;
+
+    text-align: start;
   }
 
   p {
@@ -70,6 +72,8 @@
   @media (min-width: 480px) {
     h1 {
       max-width: none;
+      margin: 2rem auto;
+      text-align: center;
     }
 
     p {

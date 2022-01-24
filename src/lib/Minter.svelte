@@ -50,7 +50,7 @@
     <Button on:click={shuffle}>SHUFFLE</Button>
   </div>
   <div class="row">
-    <Token {urls} />
+      <Token {urls} isMinted={true} />
   </div>
 </div>
 
