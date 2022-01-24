@@ -1,7 +1,8 @@
 <script>
   import Button from './Button.svelte'
   import Token from './Token.svelte'
-
+  import Carousel from './Carousel.svelte'
+  
   const maxis = {
     chin: 2,
     ears: 2,
@@ -37,9 +38,12 @@
 
   let urls = getUrls()
 
-  const shuffle = () => {
-    urls = getUrls()
+  let mintedUrls = []
+
+  const mint = () => {
+      mintedUrls = [getUrls(), ...mintedUrls]
   }
+
 </script>
 
 <div>
@@ -47,11 +51,14 @@
     {possibilities} possible tokens
   </p>
   <div class="row">
-    <Button on:click={shuffle}>SHUFFLE</Button>
+    <Button on:click={mint}>MINT</Button>
   </div>
-  <div class="row">
-      <Token {urls} isMinted={true} />
-  </div>
+  <Carousel>
+    <Token {urls} isMinted={false} />
+    {#each mintedUrls as urls}
+      <Token {urls} isMinted />
+    {/each}
+  </Carousel>
 </div>
 
 <style>

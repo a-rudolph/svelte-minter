@@ -20,8 +20,10 @@
   .wrapper {
     position: relative;
 
+    margin: 1rem;
+
     height: 320px;
-    width: 320px;
+    min-width: 320px;
 
     border-radius: 5px;
     background-color: bisque;
