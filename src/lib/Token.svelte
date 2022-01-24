@@ -20,13 +20,22 @@
   .wrapper {
     position: relative;
 
-    margin: 1rem;
+    margin: .5rem;
 
-    height: 320px;
-    min-width: 320px;
+    height: 60vw;
+    min-width: 60vw;
 
     border-radius: 5px;
     background-color: bisque;
+  }
+
+  @media (min-width: 400px) {
+    .wrapper {
+      height: 320px;
+      min-width: 320px;      
+    
+      margin: 1rem;
+    }
   }
 
   img {
