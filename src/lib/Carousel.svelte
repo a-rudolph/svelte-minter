@@ -2,7 +2,7 @@
 </script>
 
 <div class="carousel-wrap">
-    <slot class='item-wrap'></slot>
+    <slot></slot>
 </div>
 
 <style>

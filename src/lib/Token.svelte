@@ -23,8 +23,6 @@
     height: 60vw;
     min-width: 60vw;
 
-    margin: 0.5rem;
-
     background-color: bisque;
   }
 
@@ -32,8 +30,6 @@
     .wrapper {
       height: 320px;
       min-width: 320px;
-
-      margin: 1rem;
     }
   }
 
