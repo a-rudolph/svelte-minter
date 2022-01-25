@@ -53,7 +53,7 @@
   <p>
     {mintedIds.length} / {possibilities} possible tokens
   </p>
-  <div class="w-full flex flex-wrap">
+  <div class="w-full flex flex-wrap justify-center sm:justify-start">
     {#if areMintablesLeft}
     <MintCard {onMint} />      
     {/if}
