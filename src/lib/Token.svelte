@@ -5,7 +5,7 @@
   const base = '/layers/base.png'
 </script>
 
-<div class="wrapper">
+<div class="rounded-lg wrapper">
   {#if isMinted}
     <img src={base} alt="base" />
     {#each urls as [key, src] (key)}
@@ -20,20 +20,19 @@
   .wrapper {
     position: relative;
 
-    margin: .5rem;
-
     height: 60vw;
     min-width: 60vw;
 
-    border-radius: 5px;
+    margin: 0.5rem;
+
     background-color: bisque;
   }
 
   @media (min-width: 400px) {
     .wrapper {
       height: 320px;
-      min-width: 320px;      
-    
+      min-width: 320px;
+
       margin: 1rem;
     }
   }
