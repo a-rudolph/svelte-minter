@@ -40,8 +40,8 @@
 
   @media (min-width: 400px) {
     .wrapper {
-      height: 320px;
-      min-width: 320px;
+      height: 240px;
+      min-width: 240px;
     }
   }
 

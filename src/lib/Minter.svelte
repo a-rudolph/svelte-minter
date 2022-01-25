@@ -27,23 +27,36 @@
   const getId = () => {
     const keys = Object.keys(maxis)
 
-    return keys.map(getPiece).join(':')
+    const id = keys.map(getPiece).join(':')
+
+    if (idsMinted[id]) return null
+
+    idsMinted[id] = 1
+    return id
   }
 
+  const idsMinted = {}
   let mintedIds = []
 
   const onMint = () => {
     const id = getId()
+
+    if (!id) return
+
     mintedIds = [id, ...mintedIds]
   }
+
+  $: areMintablesLeft = mintedIds.length < possibilities
 </script>
 
 <div>
   <p>
-    {possibilities} possible tokens
+    {mintedIds.length} / {possibilities} possible tokens
   </p>
-  <div class="w-full flex">
-    <MintCard {onMint} />
+  <div class="w-full flex flex-wrap">
+    {#if areMintablesLeft}
+    <MintCard {onMint} />      
+    {/if}
     {#each mintedIds as id (id)}
       <MintCard {id} isMinted />
     {/each}
