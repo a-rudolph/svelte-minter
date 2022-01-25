@@ -1,5 +1,5 @@
 <script>
-  export let urls
+  export let id = null
   export let isMinted = false
   export let onMint = () => {}
 
@@ -7,7 +7,7 @@
 </script>
 
 <div class="m-2 p-5 rounded shadow-lg border-2">
-  <Token {urls} {isMinted} />
+  <Token {id} {isMinted} />
   <div class="mt-5 w-full flex justify-end">
   {#if isMinted}
   <p>this one is minted</p>

@@ -1,7 +1,19 @@
 <script>
-  export let urls
+  export let id = null
   export let isMinted
 
+  const getUrls = (id) => {
+    if (!id) return []
+
+    const split = id.split(':')
+
+    return split.map((url) => {
+      return [url, `/layers/${url}.png`]
+    })
+  }
+
+  const urls = getUrls(id)
+  
   const base = '/layers/base.png'
 </script>
 

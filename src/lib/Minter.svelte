@@ -1,7 +1,5 @@
 <script>
-  import Button from './Button.svelte'
   import MintCard from './MintCard.svelte'
-  import Carousel from './Carousel.svelte'
 
   const maxis = {
     chin: 2,
@@ -19,29 +17,24 @@
     return Math.ceil(Math.random() * max)
   }
 
-  const getUrl = (key) => {
+  const getPiece = (key) => {
     const max = maxis[key]
     const n = getN(max)
 
-    return `/layers/${key}-${n}.png`
+    return `${key}-${n}`
   }
 
-  const getKeyUrlPair = (key) => {
-    return [key, getUrl(key)]
-  }
-
-  const getUrls = () => {
+  const getId = () => {
     const keys = Object.keys(maxis)
 
-    return keys.map(getKeyUrlPair)
+    return keys.map(getPiece).join(':')
   }
 
-  let urls = getUrls()
-
-  let mintedUrls = []
+  let mintedIds = []
 
   const onMint = () => {
-    mintedUrls = [getUrls(), ...mintedUrls]
+    const id = getId()
+    mintedIds = [id, ...mintedIds]
   }
 </script>
 
@@ -49,11 +42,11 @@
   <p>
     {possibilities} possible tokens
   </p>
-  <Carousel>
-    <MintCard {urls} {onMint} />
-    {#each mintedUrls as urls}
-      <MintCard {urls} isMinted />
+  <div class="w-full flex">
+    <MintCard {onMint} />
+    {#each mintedIds as id (id)}
+      <MintCard {id} isMinted />
     {/each}
-  </Carousel>
+  </div>
 </div>
 
