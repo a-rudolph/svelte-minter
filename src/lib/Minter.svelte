@@ -57,8 +57,8 @@
     {#if areMintablesLeft}
     <MintCard {onMint} />      
     {/if}
-    {#each mintedIds as id (id)}
-      <MintCard {id} isMinted />
+    {#each mintedIds as id, i (id)}
+      <MintCard {id} isMinted tag="{mintedIds.length - i}/{possibilities}" />
     {/each}
   </div>
 </div>
