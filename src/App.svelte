@@ -23,8 +23,10 @@
 </script>
 
 <main>
-  <img src={logo} alt="Mint Logo" />
-  <h1>Start Minting!</h1>
+  <div class="header">
+    <img src={logo} alt="Mint Logo" />
+    <h1>Mint</h1>
+  </div>
 
   <Minter />
 
@@ -47,8 +49,15 @@
     margin: 0 auto;
   }
 
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+
   img {
-    height: 16rem;
+    height: 4rem;
   }
 
   h1 {
@@ -57,8 +66,8 @@
     font-size: 4rem;
     font-weight: 100;
     line-height: 1.1;
-    margin: 2rem 0;
     max-width: 14rem;
+    margin: 0 1rem;
 
     text-align: start;
   }
@@ -72,8 +81,11 @@
   @media (min-width: 480px) {
     h1 {
       max-width: none;
-      margin: 2rem auto;
       text-align: center;
+    }
+
+    .header {
+      margin: 2rem auto;
     }
 
     p {
