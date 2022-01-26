@@ -54,7 +54,7 @@
       <div
         in:receive="{{key: id}}"
         out:send="{{key: id}}"
-        animate:flip="{{duration: 400, delay: 400}}"
+        animate:flip="{{duration: 400, delay: 600}}"
       >
         <MintCard
           {id}

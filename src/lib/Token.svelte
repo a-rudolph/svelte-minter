@@ -1,4 +1,6 @@
 <script>
+  import { fade } from "svelte/transition";
+
   export let id = null
   export let isMinted
 
@@ -24,7 +26,11 @@
       <img {src} alt={key} />
     {/each}
   {:else}
-    <div class="placeholder">?</div>
+    <div 
+      out:fade="{{ duration: 200 }}"
+      class="text-white text-2xl rounded-lg w-full h-full flex justify-center items-center bg-gray-500">
+        ?
+    </div>
   {/if}
 </div>
 
@@ -52,14 +58,5 @@
 
     height: 100%;
     width: 100%;
-  }
-
-  .placeholder {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
   }
 </style>
