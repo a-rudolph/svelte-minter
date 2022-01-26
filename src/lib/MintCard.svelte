@@ -2,10 +2,14 @@
   export let id = null
   export let tag = ''
   export let isMinted = false
-  export let onMint = () => {}
+  export let onMint = (id) => {}
 
   import {fly} from 'svelte/transition'
   import Token from './Token.svelte'
+
+  const onClick = () => {
+    onMint(id)
+  }
 </script>
 
 <div
@@ -17,7 +21,7 @@
       <p>{tag}</p>
     {:else}
       <button
-        on:click={onMint}
+        on:click={onClick}
         class="px-3 py-1 bg-green-800 text-white rounded-md">
         mint
       </button>

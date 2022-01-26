@@ -53,24 +53,24 @@
 
     if (idsMinted[id]) return null
 
-    idsMinted[id] = 1
     return id
   }
-  const idsMinted = {}
 
-  let current = getId()
+  let idsMinted = {}
+  const first = getId()
+  let mintedIds = [first]
 
-  let mintedIds = [current]
+  const onMint = (id) => {
+    idsMinted = {
+      ...idsMinted,
+      [id]: 1,
+    }
+    const newId = getId()
 
-  const onMint = () => {
-    const id = getId()
+    if (idsMinted[newId]) return
 
-    if (!id) return
-
-    mintedIds = [id, ...mintedIds]
+    mintedIds = [newId, ...mintedIds]
   }
-
-  $: areMintablesLeft = mintedIds.length < possibilities
 </script>
 
 <div>
@@ -87,7 +87,7 @@
         <MintCard
           {id}
           {onMint}
-          isMinted={i > 0}
+          isMinted={idsMinted[id]}
           tag="{mintedIds.length - i}/{possibilities}"
         />
       </div>
