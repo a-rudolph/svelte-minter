@@ -13,7 +13,7 @@
 </script>
 
 <div
-  in:fly="{{ x: -300, duration: 500 }}"
+  in:fly="{{ x: -300, duration: 500, delay: 400 }}"
   class="m-2 p-5 rounded shadow-lg border-2">
   <Token {id} {isMinted} />
   <div class="mt-5 w-full flex justify-end">

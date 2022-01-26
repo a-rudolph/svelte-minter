@@ -58,37 +58,43 @@
 
   let idsMinted = {}
   const first = getId()
-  let mintedIds = [first]
+  let minedIds = [first]
 
   const onMint = (id) => {
     idsMinted = {
       ...idsMinted,
       [id]: 1,
     }
+    mineNewToken()
+  }
+
+  const mineNewToken = () => {
     const newId = getId()
 
-    if (idsMinted[newId]) return
+    if (idsMinted[newId]) {
+      return
+    }
 
-    mintedIds = [newId, ...mintedIds]
+    minedIds = [newId, ...minedIds]
   }
 </script>
 
 <div>
   <p>
-    {mintedIds.length} / {possibilities} possible tokens
+    {possibilities} possible tokens
   </p>
   <div class="w-full flex flex-wrap justify-center sm:justify-start">
-    {#each mintedIds as id, i (id)}
+    {#each minedIds as id, i (id)}
       <div
         in:receive="{{key: id}}"
         out:send="{{key: id}}"
-        animate:flip="{{duration: 200}}"
+        animate:flip="{{duration: 400, delay: 400}}"
       >
         <MintCard
           {id}
           {onMint}
           isMinted={idsMinted[id]}
-          tag="{mintedIds.length - i}/{possibilities}"
+          tag="{minedIds.length - i}/{possibilities}"
         />
       </div>
     {/each}
