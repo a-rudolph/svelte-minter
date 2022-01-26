@@ -11,8 +11,9 @@
 
   let isMinting = false
 
+  const mintTime = 4000
   const mintProgress = tweened(0, {
-    duration: 5000,
+    duration: mintTime,
     ease: cubicOut,
   })
 
@@ -24,7 +25,7 @@
     }
 
     mintProgress.set(1)
-    await sleep(5000)
+    await sleep(mintTime)
 
     isMinting = false
     onMint(id)
