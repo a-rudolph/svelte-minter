@@ -11,6 +11,8 @@
       isEtherPresent = true
 
       const provider = new ethers.providers.Web3Provider(window.ethereum)
+      
+      console.log(provider, {isEtherPresent})
 
       await provider.send('eth_requestAccounts', [])
 
@@ -22,7 +24,7 @@
   let signer = null
 </script>
 
-<main>
+<main class="bg-white min-h-screen">
   <div class="header">
     <img src={logo} alt="Mint Logo" />
     <h1>Mint</h1>
