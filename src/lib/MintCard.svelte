@@ -11,7 +11,7 @@
 
   let isMinting = false
 
-  const mintTime = 4000
+  const mintTime = 2000
   const mintProgress = tweened(0, {
     duration: mintTime,
     ease: cubicOut,
